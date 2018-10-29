@@ -1,0 +1,70 @@
+{
+  "paragraphs": [
+    {
+      "text": "%spark\nimport org.apache.spark.streaming._\nimport org.apache.spark.sql.streaming._\n\nval batchInterval \u003d 10\n\nval socketStreamDf \u003d spark.\n  readStream.\n  format(\"socket\").\n  option(\"host\", \"127.0.0.1\").\n  option(\"port\", 12345).\n  load\n\nimport spark.implicits._\nval socketDs \u003d socketStreamDf.as[String]\nval linesDs \u003d socketDs.flatMap(_.lines)\n\nval query \u003d linesDs.writeStream.format(\"console\").outputMode(OutputMode.Update())\n        \nquery.start().awaitTermination()\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-29 22:43:04.393",
+      "config": {
+        "colWidth": 12.0,
+        "fontSize": 9.0,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "import org.apache.spark.streaming._\nimport org.apache.spark.sql.streaming._\nbatchInterval: Int \u003d 10\nsocketStreamDf: org.apache.spark.sql.DataFrame \u003d [value: string]\nimport spark.implicits._\nsocketDs: org.apache.spark.sql.Dataset[String] \u003d [value: string]\nlinesDs: org.apache.spark.sql.Dataset[String] \u003d [value: string]\nquery: org.apache.spark.sql.streaming.DataStreamWriter[String] \u003d org.apache.spark.sql.streaming.DataStreamWriter@7ecd59a4\norg.apache.spark.sql.streaming.StreamingQueryException: Query [id \u003d b3ab9192-5297-4c52-911d-13dc99418b6a, runId \u003d f1c7ac55-68ed-4f30-bcb6-0a679ea744f6] terminated with exception: Connection refused (Connection refused)\n  at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runBatches(StreamExecution.scala:343)\n  at org.apache.spark.sql.execution.streaming.StreamExecution$$anon$1.run(StreamExecution.scala:206)\nCaused by: java.net.ConnectException: Connection refused (Connection refused)\n  at java.net.PlainSocketImpl.socketConnect(Native Method)\n  at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)\n  at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)\n  at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)\n  at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)\n  at java.net.Socket.connect(Socket.java:589)\n  at java.net.Socket.connect(Socket.java:538)\n  at java.net.Socket.\u003cinit\u003e(Socket.java:434)\n  at java.net.Socket.\u003cinit\u003e(Socket.java:211)\n  at org.apache.spark.sql.execution.streaming.TextSocketSource.initialize(socket.scala:73)\n  at org.apache.spark.sql.execution.streaming.TextSocketSource.\u003cinit\u003e(socket.scala:70)\n  at org.apache.spark.sql.execution.streaming.TextSocketSourceProvider.createSource(socket.scala:215)\n  at org.apache.spark.sql.execution.datasources.DataSource.createSource(DataSource.scala:243)\n  at org.apache.spark.sql.execution.streaming.StreamExecution$$anonfun$2$$anonfun$applyOrElse$1.apply(StreamExecution.scala:158)\n  at org.apache.spark.sql.execution.streaming.StreamExecution$$anonfun$2$$anonfun$applyOrElse$1.apply(StreamExecution.scala:155)\n  at scala.collection.mutable.MapLike$class.getOrElseUpdate(MapLike.scala:194)\n  at scala.collection.mutable.AbstractMap.getOrElseUpdate(Map.scala:80)\n  at org.apache.spark.sql.execution.streaming.StreamExecution$$anonfun$2.applyOrElse(StreamExecution.scala:155)\n  at org.apache.spark.sql.execution.streaming.StreamExecution$$anonfun$2.applyOrElse(StreamExecution.scala:153)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$2.apply(TreeNode.scala:267)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$2.apply(TreeNode.scala:267)\n  at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(TreeNode.scala:70)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:266)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:306)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:187)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapChildren(TreeNode.scala:304)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:306)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:187)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapChildren(TreeNode.scala:304)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$transformDown$1.apply(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode$$anonfun$4.apply(TreeNode.scala:306)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapProductIterator(TreeNode.scala:187)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.mapChildren(TreeNode.scala:304)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:272)\n  at org.apache.spark.sql.catalyst.trees.TreeNode.transform(TreeNode.scala:256)\n  at org.apache.spark.sql.execution.streaming.StreamExecution.logicalPlan$lzycompute(StreamExecution.scala:153)\n  at org.apache.spark.sql.execution.streaming.StreamExecution.logicalPlan(StreamExecution.scala:147)\n  at org.apache.spark.sql.execution.streaming.StreamExecution.org$apache$spark$sql$execution$streaming$StreamExecution$$runBatches(StreamExecution.scala:276)\n  ... 1 more\n"
+          }
+        ]
+      },
+      "apps": [],
+      "jobName": "paragraph_1540849442162_-129749647",
+      "id": "20181029-214402_2117766316",
+      "dateCreated": "2018-10-29 21:44:02.162",
+      "dateStarted": "2018-10-29 22:43:04.400",
+      "dateFinished": "2018-10-29 22:43:10.934",
+      "status": "ERROR",
+      "progressUpdateIntervalMs": 500
+    },
+    {
+      "text": "%spark\n",
+      "user": "anonymous",
+      "dateUpdated": "2018-10-29 22:00:11.093",
+      "config": {},
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "jobName": "paragraph_1540850411092_-2124370230",
+      "id": "20181029-220011_497590678",
+      "dateCreated": "2018-10-29 22:00:11.092",
+      "status": "READY",
+      "progressUpdateIntervalMs": 500
+    }
+  ],
+  "name": "steam-users-streaming",
+  "id": "2DWRBUAAK",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {
+    "spark:shared_process": []
+  },
+  "config": {
+    "isZeppelinNotebookCronEnable": false
+  },
+  "info": {}
+}
