@@ -9,5 +9,5 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
-HOST=${HOST:-"kafka"}
+HOST=${HOST:-"127.0.0.1"}
 "${SCRIPT_DIR}/client.sh" kafka-topics.sh --create --zookeeper ${HOST}:2181 --replication-factor 1 --partitions 1 --topic "${1}" 

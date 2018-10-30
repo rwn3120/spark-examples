@@ -7,14 +7,14 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
-HOST=${HOST:-"kafka"}
+HOST=${HOST:-"127.0.0.1"}
 if [[ "${1}" == kafka-* ]]; then
     docker exec -it \
-        "${HOST}" \
+        "kafka" \
         bash -c '"${KAFKA_HOME}/bin/${0}" "${@:1}"' "${@}"
         exit 2
 else 
     docker exec -it \
-        "${HOST}" \
+        "kafka" \
         "${1}" "${@:2}"
 fi
