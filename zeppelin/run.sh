@@ -10,4 +10,4 @@ docker run -it --rm \
 	-v "${SHARED_DIR}/logs:/logs" -v "${SHARED_DIR}/notebook:/notebook" -v "${SHARED_DIR}/data:/data" \
 	-e "ZEPPELIN_LOG_DIR=/logs" -e "ZEPPELIN_NOTEBOOK_DIR=/notebook" \
 	--name zeppelin \
-	apache/zeppelin:0.8.0
+	apache/zeppelin:0.7.3
