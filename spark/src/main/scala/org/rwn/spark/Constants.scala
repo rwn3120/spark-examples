@@ -1,4 +1,4 @@
-package org.rwn.spark.exercise
+package org.rwn.spark
 
 /**
   * Created by Radek Strejc, radek.strejc at oracle.com on 10/29/18.

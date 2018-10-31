@@ -8,7 +8,7 @@ import org.apache.commons.io.IOUtils
 import org.apache.commons.lang.time.DateUtils
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import org.rwn.spark.examples.Constants._
+import org.rwn.spark.Constants._
 
 import scala.collection.mutable
 

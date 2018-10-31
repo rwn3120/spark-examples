@@ -2,7 +2,7 @@ package org.rwn.spark.exercise
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import org.rwn.spark.examples.Constants._
+import org.rwn.spark.Constants._
 
 object GamesCSV {
 
@@ -31,7 +31,7 @@ object GamesCSV {
 //      // TODO create view
 //      gamesDF.___("games")
 //
-//      // TODO Select linux games
+//      // TODO reate SQL query: show linux games only
 //      gamesDF.sqlContext
 //        .sql("SELECT name, is_free, metacritic_score FROM games WHERE ___")
 //        .show()

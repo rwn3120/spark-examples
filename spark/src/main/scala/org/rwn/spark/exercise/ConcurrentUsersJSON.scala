@@ -8,7 +8,7 @@ import org.apache.commons.io.IOUtils
 import org.apache.commons.lang.time.DateUtils
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession
-import org.rwn.spark.examples.Constants._
+import org.rwn.spark.Constants._
 
 import scala.collection.mutable
 
@@ -46,12 +46,13 @@ object ConcurrentUsersJSON {
 //      Charset.forName("utf8"))
 //
 //    val sparkSession = SparkSession.builder.config(conf).getOrCreate()
-//    val sparkSQLContext = sparkSession.sqlContext
+//    // TODO: get SparkSQL context
+//    val sparkSQLContext = sparkSession.___
 //
 //    try {
 //      import sparkSession.implicits._
 //      val jsonDS = Seq(json).toDS
-//      // TODO read json
+//      // TODO: read json
 //      val jsonDF = sparkSQLContext.___.___(jsonDS)
 //
 //      var statsDF = jsonDF
@@ -67,9 +68,10 @@ object ConcurrentUsersJSON {
 //        }
 //      }
 //
+//      // TODO: create SQL query: show hourly peaks
 //      statsDF.toDF("date", "users").createOrReplaceTempView("stats")
 //
-//      // TODO create SQL query
+//      // TODO: create SQL query: show hourly peaks
 //      sparkSQLContext
 //        .sql("""SELECT ___""")
 //        .show
