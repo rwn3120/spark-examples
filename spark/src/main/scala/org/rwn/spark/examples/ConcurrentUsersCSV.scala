@@ -28,6 +28,7 @@ object ConcurrentUsersCSV {
     try {
       val linesRDD = sparkContext.textFile("users.csv")
 
+      // []string  => [](Date, Long)
       val userStatsRDD = linesRDD.map(line => {
         val splits = line.split(',')
         val timeInMillis = splits(0).toLong
@@ -38,7 +39,6 @@ object ConcurrentUsersCSV {
       val yesterday = new Date(System.currentTimeMillis() - ONE_DAY_IN_MILLIS)
       val latestUserStatsRDD = userStatsRDD.filter {
         case (date, _) =>
-          println(date.after(yesterday))
           date.after(yesterday)
       }
 
@@ -60,7 +60,7 @@ object ConcurrentUsersCSV {
           }
         }
 
-      val hourlyPeaks = hourlyPeaksRDD.collect().sortBy(_._1)
+      val hourlyPeaks = hourlyPeaksRDD.collect().sortBy(peak => peak._1)
 
       hourlyPeaks.foreach(println)
     } finally {

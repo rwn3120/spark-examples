@@ -28,12 +28,12 @@ object GamesCSV {
 //        .option("header", "true")
 //        .load("games.csv")
 //
-//      // TODO create view
-//      gamesDF.___("games")
+//      // TODO: create view
+//      gamesDF.c_____OrR______TempView("games")
 //
-//      // TODO reate SQL query: show linux games only
+//      // TODO: create SQL query: show linux games only
 //      gamesDF.sqlContext
-//        .sql("SELECT name, is_free, metacritic_score FROM games WHERE ___")
+//        .sql("S_____ name, is_free, metacritic_score F___ games W____ platforms_linux == true")
 //        .show()
 //    } finally {
 //      sparkContext.stop()

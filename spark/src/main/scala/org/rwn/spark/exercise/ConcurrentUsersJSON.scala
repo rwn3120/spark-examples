@@ -47,13 +47,13 @@ object ConcurrentUsersJSON {
 //
 //    val sparkSession = SparkSession.builder.config(conf).getOrCreate()
 //    // TODO: get SparkSQL context
-//    val sparkSQLContext = sparkSession.___
+//    val sparkSQLContext = sparkSession.sqlC_____t
 //
 //    try {
 //      import sparkSession.implicits._
 //      val jsonDS = Seq(json).toDS
 //      // TODO: read json
-//      val jsonDF = sparkSQLContext.___.___(jsonDS)
+//      val jsonDF = sparkSQLContext.r__d.j_n(jsonDS)           // string =>
 //
 //      var statsDF = jsonDF
 //        .flatMap(

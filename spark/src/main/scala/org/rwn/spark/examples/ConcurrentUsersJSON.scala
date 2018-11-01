@@ -24,13 +24,6 @@ object ConcurrentUsersJSON {
   def main(args: Array[String]): Unit = {
     val appName = this.getClass.getCanonicalName
 
-    // get input
-    val input = if (args.nonEmpty) {
-      args(0)
-    } else {
-      throw new IllegalArgumentException("Missing argument")
-    }
-
     println(s"Starting ${appName}")
 
     // get configuration

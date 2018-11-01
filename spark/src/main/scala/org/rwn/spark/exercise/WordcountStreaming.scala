@@ -41,10 +41,10 @@ object WordcountStreaming {
 //      val textDf = socketStreamDf.as[String]
 //
 //      // TODO: split line to words
-//      val wordsDf = textDf.flatMap(value => value.___).filter(_.nonEmpty)
+//      val wordsDf = textDf.flatMap(value => value.split(___)).filter(_.nonEmpty)
 //
 //      // TODO: group by word
-//      val countDf = wordsDf.groupBy("___").count()
+//      val countDf = wordsDf.groupBy("v___e").count()
 //
 //      val query = countDf.writeStream
 //        .format("console")
