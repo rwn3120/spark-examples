@@ -4,4 +4,4 @@ Basic examples of Apache Spark applications:
 * Datasets & Dataframes
 * Streaming
 
-+ excercises & Apache Zeppelin demo
+\+ exercises & Apache Zeppelin demo
