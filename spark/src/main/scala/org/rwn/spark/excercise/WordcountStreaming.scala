@@ -1,4 +1,4 @@
-package org.rwn.spark.exercise
+package org.rwn.spark.excercise
 
 import org.apache.spark.SparkConf
 import org.apache.spark.sql.SparkSession

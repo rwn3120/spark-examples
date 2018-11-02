@@ -1,4 +1,4 @@
-package org.rwn.spark.exercise
+package org.rwn.spark.excercise
 
 import java.util.{Calendar, Date}
 
